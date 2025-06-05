@@ -10,7 +10,7 @@ export async function DiscordRequest(endpoint, options) {
         headers: {
             Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
             'Content-Type': 'application/json; charset=UTF-8',
-            'User-Agent': 'DiscordBot (insert url here, 1)',
+            'User-Agent': 'DiscordBot (https://github.com/makrofagi/discord-minecraft-whitelist, 1)',
         },
         ...options
     });

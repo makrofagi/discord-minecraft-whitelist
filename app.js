@@ -25,7 +25,11 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
         if (name === 'whitelist') {
             const username = data.options[0].value;
             try {
-                const response = await fetch(`https://playerdb.co/api/player/minecraft/${username}`);
+                const response = await fetch(`https://playerdb.co/api/player/minecraft/${username}`, {
+                    headers: {
+                        'User-Agent': 'DiscordBot (https://github.com/makrofagi/discord-minecraft-whitelist, 1)',
+                    },
+                });
                 const data = await response.json();
 
                 if (!data.success) {
@@ -53,8 +57,8 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
                 await fs.writeFile(whitelistPath, JSON.stringify(whitelist, null, 2));
 
                 const rcon = await Rcon.connect({
-                    host: `${process.env.RCON_HOST}`, 
-                    port: parseInt(process.env.RCON_PORT), 
+                    host: `${process.env.RCON_HOST}`,
+                    port: parseInt(process.env.RCON_PORT),
                     password: `${process.env.RCON_PASSWORD}`
                 });
 
