@@ -1,0 +1,23 @@
+{
+  "name": "discord-minecraft-whitelist",
+  "private": true,
+  "version": "1",
+  "description": "minecraft whitelist discord integration",
+  "main": "app.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "register": "node commands.js"
+  },
+  "author": "fagi",
+  "license": "MIT",
+  "dependencies": {
+    "discord-interactions": "^4.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "rcon-client": "^4.2.5"
+  }
+}
